@@ -1,30 +1,30 @@
 # AdventureWorks SQL Server Portfolio
 
-Colección de consultas y scripts T-SQL sobre la base de datos de ejemplo
-**AdventureWorks** de Microsoft, organizada por concepto y nivel de dificultad.
+A collection of T-SQL queries and scripts built on Microsoft's
+**AdventureWorks** sample database, organized by concept and difficulty level.
 
-> El objetivo de este repositorio es doble: practicar y demostrar habilidades
-> en SQL Server, desde consultas fundamentales hasta optimización de rendimiento.
+> This repository has a twofold goal: to practice and to showcase SQL Server
+> skills, from fundamental queries to performance tuning.
 
-## Estructura
+## Structure
 
-| Carpeta | Contenido |
+| Folder | Contents |
 |---|---|
-| `setup/` | Cómo descargar y restaurar AdventureWorks en local |
-| `01-basics/` | SELECT, WHERE, ORDER BY, JOINs básicos |
-| `02-joins-and-apply/` | Todos los tipos de JOIN, CROSS/OUTER APPLY |
-| `03-aggregations/` | GROUP BY, HAVING, funciones de agregación |
-| `04-subqueries-and-ctes/` | Subconsultas, CTEs y CTEs recursivos |
-| `05-window-functions/` | ROW_NUMBER, RANK, LAG/LEAD, totales acumulados |
-| `06-tsql-programming/` | Stored procedures, funciones, TRY...CATCH, transacciones |
-| `07-performance-and-indexes/` | Índices, planes de ejecución, optimización |
-| `assets/` | Diagramas y capturas (planes de ejecución, esquema) |
+| `setup/` | How to download and restore AdventureWorks locally |
+| `01-basics/` | SELECT, WHERE, ORDER BY, basic JOINs |
+| `02-joins-and-apply/` | Every JOIN type, CROSS/OUTER APPLY |
+| `03-aggregations/` | GROUP BY, HAVING, aggregate functions |
+| `04-subqueries-and-ctes/` | Subqueries, CTEs, and recursive CTEs |
+| `05-window-functions/` | ROW_NUMBER, RANK, LAG/LEAD, running totals |
+| `06-tsql-programming/` | Stored procedures, functions, TRY...CATCH, transactions |
+| `07-performance-and-indexes/` | Indexes, execution plans, optimization |
+| `assets/` | Diagrams and screenshots (execution plans, schema) |
 
-## Cómo usar este repositorio
+## How to use this repository
 
-1. Restaura la base de datos siguiendo `setup/README.md`.
-2. Navega a la carpeta del tema que te interese.
-3. Cada query incluye el problema de negocio que resuelve y su explicación.
+1. Restore the database following `setup/README.md`.
+2. Navigate to the folder for the topic you're interested in.
+3. Each query includes the business problem it solves and an explanation.
 
 ---
-_Versión de SQL Server usada: SQL Server 2025 Developer Edition_
+_SQL Server version used: SQL Server 2025 Developer Edition_

@@ -1,17 +1,15 @@
-# 01 · Fundamentos de consulta
+# 01 · Query Fundamentals
 
-Consultas base: selección, filtrado, ordenamiento y joins simples. Punto de partida para todo lo demás.
+Foundational queries: selection, filtering, sorting, and simple joins. The
+starting point for everything else.
 
-## Temas que cubre esta sección
+## Topics covered in this section
 
-- SELECT, columnas calculadas, alias
-- WHERE, operadores y filtrado
+- SELECT, computed columns, aliases
+- WHERE, operators, and filtering
 - ORDER BY, TOP, DISTINCT
-- INNER JOIN básico
+- Basic INNER JOIN
 
-## Consultas
+## Queries
 
-<!-- Lista aquí cada query con una línea: nombre del archivo + problema que resuelve.
-Ejemplo:
-- `clientes-sin-recompra.sql` — Clientes que compraron en 2013 pero no en 2014.
--->
+- `premium-products-by-subcategory.sql` — The 15 most expensive sellable products and their subcategory.

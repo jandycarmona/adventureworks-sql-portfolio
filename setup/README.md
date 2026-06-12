@@ -1,101 +1,103 @@
-# Setup — Instalar y restaurar AdventureWorks
+# Setup — Install and Restore AdventureWorks
 
-Esta guía explica cómo descargar la base de datos de ejemplo **AdventureWorks**
-de Microsoft y restaurarla en una instancia local de SQL Server, para que puedas
-ejecutar las consultas de este repositorio.
+This guide explains how to download Microsoft's **AdventureWorks** sample
+database and restore it on a local SQL Server instance, so you can run the
+queries in this repository.
 
-AdventureWorks simula a *Adventure Works Cycles*, una empresa ficticia que fabrica
-y vende bicicletas y accesorios. Su esquema (ventas, producción, RR.HH., compras)
-es lo bastante rico para practicar desde consultas básicas hasta optimización.
+AdventureWorks simulates *Adventure Works Cycles*, a fictional company that
+manufactures and sells bicycles and accessories. Its schema (sales, production,
+HR, purchasing) is rich enough to practice everything from basic queries to
+optimization.
 
 ---
 
-## Requisitos previos
+## Prerequisites
 
-| Herramienta | Notas |
+| Tool | Notes |
 |---|---|
-| **SQL Server** | Edición Developer o Express (ambas gratuitas) sirven. |
-| **SQL Server Management Studio (SSMS)** | Para restaurar con interfaz gráfica. |
+| **SQL Server** | The Developer or Express edition (both free) will do. |
+| **SQL Server Management Studio (SSMS)** | To restore through a graphical interface. |
 
-> AdventureWorks es compatible con SQL Server 2012 y versiones posteriores.
+> AdventureWorks is compatible with SQL Server 2012 and later.
 
 ---
 
-## Paso 1 · Descargar el archivo `.bak`
+## Step 1 · Download the `.bak` file
 
-Descarga el backup desde la página oficial de *releases* de Microsoft:
+Download the backup from Microsoft's official *releases* page:
 
-- **Página de descargas:** https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks
-- **Documentación oficial:** https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure
+- **Downloads page:** https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks
+- **Official documentation:** https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure
 
-En la sección *OLTP backups*, elige la versión que coincida (o sea anterior) a tu
-SQL Server. Por ejemplo, descarga **`AdventureWorks2022.bak`** si usas SQL Server 2022.
+In the *OLTP backups* section, pick the version that matches (or is older than)
+your SQL Server. For example, download **`AdventureWorks2022.bak`** if you use
+SQL Server 2022.
 
-> **Variantes disponibles:**
-> - `AdventureWorks` (OLTP) — la transaccional. **Es la que usa este repositorio.**
-> - `AdventureWorksDW` — orientada a *data warehouse* (modelo dimensional).
-> - `AdventureWorksLT` — versión ligera y reducida.
+> **Available variants:**
+> - `AdventureWorks` (OLTP) — the transactional one. **This is the one this repository uses.**
+> - `AdventureWorksDW` — geared toward *data warehousing* (dimensional model).
+> - `AdventureWorksLT` — a lightweight, reduced version.
 
-Enlace directo de ejemplo:
+Example direct link:
 `https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2022.bak`
 
 ---
 
-## Paso 2 · Mover el `.bak` a la carpeta de backups
+## Step 2 · Move the `.bak` to the backup folder
 
-Mueve el archivo descargado a la carpeta de *Backup* de tu instancia, donde
-SQL Server tiene permisos de lectura garantizados. Si lo dejas en *Descargas* o
-en el *Escritorio*, es común que la restauración falle por permisos.
+Move the downloaded file to your instance's *Backup* folder, where SQL Server is
+guaranteed to have read permissions. If you leave it in *Downloads* or on the
+*Desktop*, the restore often fails due to permissions.
 
-La ruta por defecto depende de tu versión de SQL Server:
+The default path depends on your SQL Server version:
 
-| Versión | Carpeta de Backup por defecto |
+| Version | Default Backup folder |
 |---|---|
 | SQL Server 2019 | `C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Backup\` |
 | SQL Server 2022 | `C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\` |
 | SQL Server 2025 | `C:\Program Files\Microsoft SQL Server\MSSQL17.MSSQLSERVER\MSSQL\Backup\` |
 
-> El número tras `MSSQL` cambia según la versión (15 = 2019, 16 = 2022, 17 = 2025).
-> Si usas una instancia con nombre, reemplaza `MSSQLSERVER` por el nombre de tu instancia.
+> The number after `MSSQL` changes with the version (15 = 2019, 16 = 2022, 17 = 2025).
+> If you use a named instance, replace `MSSQLSERVER` with your instance name.
 
 ---
 
-## Paso 3 · Restaurar la base de datos
+## Step 3 · Restore the database
 
-Puedes restaurar de dos formas. La interfaz gráfica (3A) es la más sencilla; la
-vía por T-SQL (3B) es reproducible y queda como script.
+You can restore in two ways. The graphical interface (3A) is the simplest; the
+T-SQL route (3B) is reproducible and leaves you with a script.
 
-### Opción 3A · Restaurar con SSMS (interfaz gráfica)
+### Option 3A · Restore with SSMS (graphical interface)
 
-1. Abre **SQL Server Management Studio** y conéctate a tu instancia
-   (normalmente `localhost`, `.`, o `nombrePC\SQLEXPRESS` si usas Express).
-2. En el **Object Explorer**, haz clic derecho sobre el nodo **Databases** y
-   selecciona **Restore Database…**
-3. En la sección **Source**, elige **Device** y haz clic en el botón **…**
-4. En **Select backup devices**, pulsa **Add**, navega hasta el `.bak` que
-   moviste en el Paso 2, selecciónalo y confirma con **OK** (dos veces).
-5. SSMS leerá el contenido del backup. En **Destination**, el campo **Database**
-   se completará solo (p. ej. `AdventureWorks2022`). Puedes dejarlo así o
-   acortarlo a `AdventureWorks`.
-6. *(Recomendado)* Ve a la página **Files** y marca **Relocate all files to folder**
-   para asegurar que el `.mdf` y el `.ldf` se guarden en una ruta válida de tu
-   equipo. Esto evita errores si el backup se creó en otra máquina.
-7. Pulsa **OK** y espera el mensaje de restauración exitosa.
-8. Refresca el nodo **Databases** (clic derecho → **Refresh**) y tu base
-   aparecerá lista para usar.
+1. Open **SQL Server Management Studio** and connect to your instance
+   (usually `localhost`, `.`, or `PCname\SQLEXPRESS` if you use Express).
+2. In **Object Explorer**, right-click the **Databases** node and select
+   **Restore Database…**
+3. In the **Source** section, choose **Device** and click the **…** button.
+4. In **Select backup devices**, click **Add**, browse to the `.bak` you moved
+   in Step 2, select it, and confirm with **OK** (twice).
+5. SSMS will read the backup's contents. Under **Destination**, the **Database**
+   field fills in automatically (e.g. `AdventureWorks2022`). You can leave it as
+   is or shorten it to `AdventureWorks`.
+6. *(Recommended)* Go to the **Files** page and check **Relocate all files to folder**
+   to make sure the `.mdf` and `.ldf` are saved to a valid path on your machine.
+   This avoids errors if the backup was created on another machine.
+7. Click **OK** and wait for the successful restore message.
+8. Refresh the **Databases** node (right-click → **Refresh**) and your database
+   will be ready to use.
 
-### Opción 3B · Restaurar con T-SQL
+### Option 3B · Restore with T-SQL
 
-Antes de restaurar, **lee los nombres lógicos** de los archivos que contiene el
-backup (varían según la versión, así que no conviene adivinarlos):
+Before restoring, **read the logical file names** contained in the backup (they
+vary by version, so it's best not to guess them):
 
 ```sql
 RESTORE FILELISTONLY
 FROM DISK = 'C:\...\Backup\AdventureWorks2022.bak';
 ```
 
-La columna `LogicalName` te dará los dos nombres que necesitas (uno de datos y
-uno de log). Úsalos en el `MOVE` del comando de restauración:
+The `LogicalName` column gives you the two names you need (one for data and one
+for the log). Use them in the `MOVE` clause of the restore command:
 
 ```sql
 USE [master];
@@ -103,21 +105,21 @@ GO
 RESTORE DATABASE AdventureWorks
 FROM DISK = 'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\AdventureWorks2022.bak'
 WITH
-    MOVE 'AdventureWorks2022'     -- LogicalName de datos (de FILELISTONLY)
+    MOVE 'AdventureWorks2022'     -- data LogicalName (from FILELISTONLY)
         TO 'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\AdventureWorks.mdf',
-    MOVE 'AdventureWorks2022_log' -- LogicalName de log (de FILELISTONLY)
+    MOVE 'AdventureWorks2022_log' -- log LogicalName (from FILELISTONLY)
         TO 'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\AdventureWorks_log.ldf',
     REPLACE;
 GO
 ```
 
-> Ajusta las rutas y los nombres lógicos a tu entorno y versión.
+> Adjust the paths and logical names to your environment and version.
 
 ---
 
-## Paso 4 · Verificar la instalación
+## Step 4 · Verify the installation
 
-Ejecuta una consulta rápida para confirmar que la base responde:
+Run a quick query to confirm the database responds:
 
 ```sql
 USE AdventureWorks;
@@ -128,21 +130,21 @@ SELECT TOP (10)
 FROM Person.Person AS p;
 ```
 
-Si ves filas de resultado, la restauración fue exitosa y ya puedes ejecutar
-las consultas del repositorio.
+If you see result rows, the restore was successful and you can now run the
+repository's queries.
 
 ---
 
-## Solución de problemas
+## Troubleshooting
 
-| Problema | Causa probable / solución |
+| Problem | Likely cause / fix |
 |---|---|
-| No aparece el `.bak` en el explorador de SSMS | SQL Server no tiene permisos en esa carpeta. Muévelo a la carpeta de *Backup* (Paso 2). |
-| `Operating system error 5 (Access is denied)` | Permisos de carpeta. Usa la carpeta de *Backup* o ajusta permisos de la cuenta de servicio de SQL Server. |
-| `The file ... cannot be overwritten` al restaurar | Define rutas válidas en **Relocate all files** (3A) o en los `MOVE` (3B). |
-| Nombres lógicos incorrectos en el `MOVE` | Ejecuta primero `RESTORE FILELISTONLY` y copia los valores de `LogicalName`. |
+| The `.bak` doesn't show up in the SSMS browser | SQL Server lacks permissions on that folder. Move it to the *Backup* folder (Step 2). |
+| `Operating system error 5 (Access is denied)` | Folder permissions. Use the *Backup* folder or adjust the SQL Server service account's permissions. |
+| `The file ... cannot be overwritten` during restore | Set valid paths under **Relocate all files** (3A) or in the `MOVE` clauses (3B). |
+| Wrong logical names in `MOVE` | Run `RESTORE FILELISTONLY` first and copy the `LogicalName` values. |
 
 ---
 
-_Una vez restaurada la base, vuelve al [README principal](../README.md) y
-navega a la sección que quieras explorar._
+_Once the database is restored, head back to the [main README](../README.md) and
+navigate to the section you'd like to explore._

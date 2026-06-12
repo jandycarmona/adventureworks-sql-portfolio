@@ -1,17 +1,18 @@
-# 05 · Funciones de ventana
+# 05 · Window Functions
 
-Cálculos sobre conjuntos de filas relacionadas sin colapsarlas, una de las herramientas más potentes de T-SQL.
+Calculations over related sets of rows without collapsing them — one of the most
+powerful tools in T-SQL.
 
-## Temas que cubre esta sección
+## Topics covered in this section
 
 - ROW_NUMBER, RANK, DENSE_RANK, NTILE
-- LAG y LEAD
-- Totales acumulados y medias móviles (ROWS/RANGE BETWEEN)
+- LAG and LEAD
+- Running totals and moving averages (ROWS/RANGE BETWEEN)
 - PARTITION BY
 
-## Consultas
+## Queries
 
-<!-- Lista aquí cada query con una línea: nombre del archivo + problema que resuelve.
-Ejemplo:
-- `clientes-sin-recompra.sql` — Clientes que compraron en 2013 pero no en 2014.
+<!-- List each query here on one line: file name + the problem it solves.
+Example:
+- `customers-without-repurchase.sql` — Customers who bought in 2013 but not in 2014.
 -->

@@ -1,17 +1,18 @@
-# 07 · Rendimiento e índices
+# 07 · Performance and Indexes
 
-Optimización de consultas: lectura de planes de ejecución, estrategias de indexado y comparación antes/después.
+Query optimization: reading execution plans, indexing strategies, and
+before/after comparisons.
 
-## Temas que cubre esta sección
+## Topics covered in this section
 
-- Índices clustered y nonclustered
-- Covering indexes y columnstore
-- Lectura de planes de ejecución
-- Reescritura de consultas (versión ingenua vs optimizada)
+- Clustered and nonclustered indexes
+- Covering indexes and columnstore
+- Reading execution plans
+- Query rewriting (naive vs. optimized version)
 
-## Consultas
+## Queries
 
-<!-- Lista aquí cada query con una línea: nombre del archivo + problema que resuelve.
-Ejemplo:
-- `clientes-sin-recompra.sql` — Clientes que compraron en 2013 pero no en 2014.
+<!-- List each query here on one line: file name + the problem it solves.
+Example:
+- `customers-without-repurchase.sql` — Customers who bought in 2013 but not in 2014.
 -->

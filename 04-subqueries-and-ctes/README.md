@@ -1,17 +1,18 @@
-# 04 · Subconsultas y CTEs
+# 04 · Subqueries and CTEs
 
-Consultas anidadas y expresiones de tabla común para estructurar lógica compleja de forma legible.
+Nested queries and common table expressions to structure complex logic in a
+readable way.
 
-## Temas que cubre esta sección
+## Topics covered in this section
 
-- Subconsultas escalares y correlacionadas
+- Scalar and correlated subqueries
 - EXISTS / IN / ANY / ALL
 - CTEs (Common Table Expressions)
-- CTEs recursivos (jerarquías)
+- Recursive CTEs (hierarchies)
 
-## Consultas
+## Queries
 
-<!-- Lista aquí cada query con una línea: nombre del archivo + problema que resuelve.
-Ejemplo:
-- `clientes-sin-recompra.sql` — Clientes que compraron en 2013 pero no en 2014.
+<!-- List each query here on one line: file name + the problem it solves.
+Example:
+- `customers-without-repurchase.sql` — Customers who bought in 2013 but not in 2014.
 -->

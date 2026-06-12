@@ -1,17 +1,17 @@
-# 03 · Agregaciones
+# 03 · Aggregations
 
-Resúmenes y métricas sobre los datos mediante agrupamiento y funciones de agregación.
+Summaries and metrics over the data through grouping and aggregate functions.
 
-## Temas que cubre esta sección
+## Topics covered in this section
 
-- GROUP BY y funciones de agregación
+- GROUP BY and aggregate functions
 - HAVING vs WHERE
 - GROUPING SETS, ROLLUP, CUBE
-- Agregaciones condicionales
+- Conditional aggregation
 
-## Consultas
+## Queries
 
-<!-- Lista aquí cada query con una línea: nombre del archivo + problema que resuelve.
-Ejemplo:
-- `clientes-sin-recompra.sql` — Clientes que compraron en 2013 pero no en 2014.
+<!-- List each query here on one line: file name + the problem it solves.
+Example:
+- `customers-without-repurchase.sql` — Customers who bought in 2013 but not in 2014.
 -->

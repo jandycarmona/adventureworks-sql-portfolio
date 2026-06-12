@@ -1,4 +1,4 @@
 # Assets
 
-Imágenes y diagramas referenciados desde los README de cada sección:
-capturas de planes de ejecución, diagrama del esquema de AdventureWorks, etc.
+Images and diagrams referenced from each section's README:
+execution plan screenshots, the AdventureWorks schema diagram, etc.

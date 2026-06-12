@@ -1,17 +1,18 @@
-# 02 · Joins y APPLY
+# 02 · Joins and APPLY
 
-Todos los tipos de combinación entre tablas, incluyendo los operadores específicos de SQL Server CROSS APPLY y OUTER APPLY.
+Every way to combine tables, including SQL Server's CROSS APPLY and OUTER APPLY
+operators.
 
-## Temas que cubre esta sección
+## Topics covered in this section
 
 - INNER, LEFT, RIGHT, FULL JOIN
-- Self join y joins múltiples
+- Self join and multiple joins
 - CROSS APPLY / OUTER APPLY
-- Diferencia entre JOIN y APPLY
+- Difference between JOIN and APPLY
 
-## Consultas
+## Queries
 
-<!-- Lista aquí cada query con una línea: nombre del archivo + problema que resuelve.
-Ejemplo:
-- `clientes-sin-recompra.sql` — Clientes que compraron en 2013 pero no en 2014.
+<!-- List each query here on one line: file name + the problem it solves.
+Example:
+- `customers-without-repurchase.sql` — Customers who bought in 2013 but not in 2014.
 -->
