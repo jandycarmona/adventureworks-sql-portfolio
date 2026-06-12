@@ -1,0 +1,14 @@
+# Backups y datos de SQL Server
+*.bak
+*.mdf
+*.ldf
+*.ndf
+
+# Archivos de SSMS / Visual Studio
+*.suo
+*.user
+.vs/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
