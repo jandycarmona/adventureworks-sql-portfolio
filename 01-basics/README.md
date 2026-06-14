@@ -14,3 +14,4 @@ starting point for everything else.
 
 - `premium-products-by-subcategory.sql` — The 15 most expensive sellable products and their subcategory.
 - `bikes-catalog-by-color.sql` — Bicycles currently on sale, listed by color and price for a marketing fact sheet.
+- `high-value-reseller-orders.sql` — Reseller orders over a high-value threshold in a given period, for a finance audit.
