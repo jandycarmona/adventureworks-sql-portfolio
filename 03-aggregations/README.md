@@ -11,7 +11,4 @@ Summaries and metrics over the data through grouping and aggregate functions.
 
 ## Queries
 
-<!-- List each query here on one line: file name + the problem it solves.
-Example:
-- `customers-without-repurchase.sql` — Customers who bought in 2013 but not in 2014.
--->
+- `salesperson-scorecard-by-territory.sql` — Per-rep order volume, billings, performance tier, and a bike-sale flag, for a sales scorecard.
