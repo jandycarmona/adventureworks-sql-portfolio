@@ -40,7 +40,7 @@
    ============================================================================= */
 
 SELECT
-	FullName          = CONCAT_WS(' ', C.FirstName, ISNULL(C.MiddleName, ''), C.LastName),
+	FullName          = CONCAT_WS(' ', C.FirstName, C.MiddleName, C.LastName),
 	AssignedTerritory = B.Name,
 	TerritoryGroup    = B.[Group],
 	OrderCount        = COUNT(D.SalesOrderID),
